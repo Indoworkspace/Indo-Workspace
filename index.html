@@ -249,5 +249,21 @@
   </div>
 </footer>
 
+<!-- HASH-JUMP: land on the right section when arriving with #contact etc. from another page -->
+<script>
+(function(){
+  function jump(){
+    if(!location.hash) return;
+    var el=null;
+    try{ el=document.querySelector(location.hash); }catch(e){ return; }
+    if(el) el.scrollIntoView({block:'start',behavior:'auto'});
+  }
+  window.addEventListener('load', function(){
+    jump();
+    setTimeout(jump, 60);
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(jump);
+  });
+})();
+</script>
 </body>
 </html>

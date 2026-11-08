@@ -39,6 +39,7 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+section[id],[id].sec{scroll-margin-top:96px}
 body{
   margin:0;font-family:var(--font-body);color:var(--text);background-color:var(--bg);
   background-image:

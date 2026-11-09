@@ -1,14 +1,14 @@
 # Indo Workspace — website
 
-Static site for **Indo Workspace** (indobiz.in) and its app **Indoone**.
+Static site for **Indo Workspace** (indoworkspace.in) and its app **Sankalp**.
 No build step, no framework — plain HTML + one shared CSS file. Push the repo, connect the domain, done.
 
 ## Folder structure
 
 ```
-indobiz.in/                       <- repo root = what the domain serves
+indoworkspace.in/                       <- repo root = what the domain serves
 │
-├── index.html                    <- HOME                 -> https://indobiz.in/
+├── index.html                    <- HOME                 -> https://indoworkspace.in/
 ├── 404.html                      <- shown for any missing URL
 ├── robots.txt                    <- tells search engines what to crawl
 ├── sitemap.xml                   <- list of pages, for search engines
@@ -16,10 +16,10 @@ indobiz.in/                       <- repo root = what the domain serves
 │
 ├── apps/                         <- APPS section (a folder)
 │   ├── index.html                <- the Apps page         -> /apps/
-│   └── indoone/                  <- one sub-folder per app
-│       ├── index.html            <- Indoone details page  -> /apps/indoone/
+│   └── sankalp/                  <- one sub-folder per app
+│       ├── index.html            <- Sankalp details page  -> /apps/sankalp/
 │       └── assets/
-│           └── logo.svg          <- INDOONE's OWN logo
+│           └── logo.svg          <- SANKALP's OWN logo
 │
 ├── contact/                      <- CONTACT section (a folder)
 │   └── index.html                <- the Contact page      -> /contact/
@@ -32,7 +32,7 @@ indobiz.in/                       <- repo root = what the domain serves
 ```
 
 Every section is a folder. Every page inside a folder is called `index.html`, which gives a clean
-URL with no `.html` at the end: `apps/indoone/index.html` is served at `https://indobiz.in/apps/indoone/`.
+URL with no `.html` at the end: `apps/sankalp/index.html` is served at `https://indoworkspace.in/apps/sankalp/`.
 
 ## Logos — one per app
 
@@ -44,10 +44,10 @@ There are two kinds of logo, and they live in two different places:
   folder.** Because each app already has its own page, its logo travels with it: nothing is shared
   between apps, so a new app can never accidentally overwrite another app's logo.
 
-Where the Indoone logo is used:
+Where the Sankalp logo is used:
 
-- `apps/indoone/index.html` — the app's own page, in the hero (`<img class="applogo" src="assets/logo.svg">`).
-- The Indoone card on the home page and on the Apps page (`.appcard__icon img`).
+- `apps/sankalp/index.html` — the app's own page, in the hero (`<img class="applogo" src="assets/logo.svg">`).
+- The Sankalp card on the home page and on the Apps page (`.appcard__icon img`).
 
 So when you add a new app, drop its logo at `apps/<name>/assets/logo.svg` and point the card and the
 app page at it. Replace the placeholder SVGs with the real artwork whenever you have it.
@@ -55,7 +55,7 @@ app page at it. Replace the placeholder SVGs with the real artwork whenever you 
 ## How a click flows through the structure
 
 - Home `Apps` (nav) → `apps/` → the Apps page.
-- Apps page → the **Indoone** card's **Details** button → `apps/indoone/` → the Indoone details page.
+- Apps page → the **Sankalp** card's **Details** button → `apps/sankalp/` → the Sankalp details page.
 - Home `Contact` (nav) → `contact/` → the Contact page.
 
 ## Adding the next app
@@ -73,7 +73,7 @@ This repo deploys with the GitHub Actions workflow at `.github/workflows/deploy-
 publishes the whole repo — including `apps/` and `contact/` — on every push to `main`.
 
 - **GitHub Pages** — Settings → Pages → Build and deployment → Source: **GitHub Actions**.
-  Then under Custom domain enter `indobiz.in` and follow GitHub's DNS instructions
+  Then under Custom domain enter `indoworkspace.in` and follow GitHub's DNS instructions
   (apex `A` records + `www` `CNAME`), and tick "Enforce HTTPS".
 - **Netlify / Vercel / Cloudflare Pages** — import the repo, no build command, publish directory `/`.
 
